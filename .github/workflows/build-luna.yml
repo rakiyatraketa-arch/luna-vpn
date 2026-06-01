@@ -35,7 +35,7 @@ jobs:
 
     - name: Restore cached libhevtun
       id: cache-libhevtun-restore
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       with:
         path: libs
         key: libhevtun-${{ runner.os }}-${{ env.NDK_HOME }}-${{ hashFiles('.git/modules/hev-socks5-tunnel/HEAD') }}-${{ hashFiles('compile-hevtun.sh') }}
@@ -47,7 +47,7 @@ jobs:
 
     - name: Save libhevtun
       if: steps.cache-libhevtun-restore.outputs.cache-hit != 'true'
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       with:
         path: libs
         key: libhevtun-${{ runner.os }}-${{ env.NDK_HOME }}-${{ hashFiles('.git/modules/hev-socks5-tunnel/HEAD') }}-${{ hashFiles('compile-hevtun.sh') }}
